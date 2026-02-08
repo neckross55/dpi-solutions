@@ -202,7 +202,7 @@ proxy-providers:
 
   proton_proxies:
     type: http
-    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/proton_proxies.yaml"
+    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/proton-proxies.yaml"
     path: ./remote-custom-providers/proton-proxies.yaml
     override:
       dialer-proxy: "WARP"
@@ -212,11 +212,13 @@ proxy-providers:
       url: https://cp.cloudflare.com/generate_204
 
 rule-providers:
+# токен доступа:
+# 
 
   my-remote-request:
     behavior: classical
     type: http
-    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/my-request.yaml"
+    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/my-remote-request.yaml"
     path: ./remote-custom-providers/my-remote-request.yaml
     interval: 86400
 

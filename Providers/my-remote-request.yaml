@@ -17,6 +17,7 @@ payload:
   - DOMAIN-SET,google-play
   
   # Прямые ссылки на скачивание контента (CDN)
+  # Но вроде пока не нужны
   # - DOMAIN-SUFFIX,googleapis.com
   # - DOMAIN-SUFFIX,gstatic.com
   # - DOMAIN-SUFFIX,ggpht.com

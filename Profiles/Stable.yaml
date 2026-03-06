@@ -214,6 +214,7 @@ proxy-providers:
 rule-providers:
 # токен доступа:
 # 
+#  новый
 
   my-remote-request:
     behavior: classical

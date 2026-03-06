@@ -1,2 +1,6 @@
 payload:
-  - DOMAIN-SUFFIX,deepseek.com
+  # - DOMAIN-SUFFIX,deepseek.com
+  - DOMAIN-SUFFIX,webcamarchivos.com
+  - DOMAIN-SUFFIX,rapidgator.net
+  - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,labs.google

@@ -212,9 +212,6 @@ proxy-providers:
       url: https://cp.cloudflare.com/generate_204
 
 rule-providers:
-# токен доступа:
-# 
-#  новый
 
   my-remote-request:
     behavior: classical

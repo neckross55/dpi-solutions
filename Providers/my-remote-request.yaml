@@ -6,8 +6,8 @@ payload:
   # - DOMAIN-SUFFIX,chan.sankakucomplex.com
   # - DOMAIN-SUFFIX,sankakucomplex.com
   # - DOMAIN-KEYWORD,sankakucomplex
-  - DOMAIN-SUFFIX,iwara.tv
-  - DOMAIN-KEYWORD,iwara
+  # - DOMAIN-SUFFIX,iwara.tv
+  # - DOMAIN-KEYWORD,iwara
   - DOMAIN-SUFFIX,rutracker.org
   - DOMAIN-KEYWORD,rutracker
   - DOMAIN-SUFFIX,epicgames

@@ -1,28 +1,18 @@
 payload:
   - DOMAIN-SUFFIX,ntc.party
-  - DOMAIN-SUFFIX,pornolab.net
-  - DOMAIN-KEYWORD,pornolab
-  - DOMAIN,chan.sankakucomplex.com
-  # - DOMAIN-SUFFIX,chan.sankakucomplex.com
-  # - DOMAIN-SUFFIX,sankakucomplex.com
-  # - DOMAIN-KEYWORD,sankakucomplex
-  # - DOMAIN-SUFFIX,iwara.tv
-  # - DOMAIN-KEYWORD,iwara
   - DOMAIN-SUFFIX,rutracker.org
   - DOMAIN-KEYWORD,rutracker
   - DOMAIN-SUFFIX,epicgames
   - DOMAIN-SUFFIX,unrealengine
-
-  # Основной интерфейс и поиск в магазине
   - DOMAIN-SET,google-play
-  
-  # Прямые ссылки на скачивание контента (CDN)
-  # Но вроде пока не нужны
-  # - DOMAIN-SUFFIX,googleapis.com
-  # - DOMAIN-SUFFIX,gstatic.com
-  # - DOMAIN-SUFFIX,ggpht.com
-  # - DOMAIN-SUFFIX,gvt1.com
-  # - DOMAIN-SUFFIX,gvt2.com
-  # - DOMAIN-KEYWORD,play.google.com
-
   - DOMAIN-SUFFIX,x.ai
+  - DOMAIN-SUFFIX,modrinth.com
+  - DOMAIN-SUFFIX,neoforged.net
+  - DOMAIN-SUFFIX,qoder.com
+  - DOMAIN-SUFFIX,amazonaws.com
+  - DOMAIN-KEYWORD,ipleak
+  - DOMAIN-SUFFIX,claude.com
+  - DOMAIN-SUFFIX,labs.google
+  - DOMAIN-SUFFIX,kilo.ai
+  - DOMAIN-SUFFIX,openrouter.ai
+

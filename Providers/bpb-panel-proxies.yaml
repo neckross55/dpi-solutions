@@ -40,6 +40,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 3 - VLESS - IPv4 : 443'
     type: vless
@@ -60,6 +61,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 4 - VLESS - IPv4 : 443'
     type: vless
@@ -80,46 +82,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: '💦 5 - VLESS - IPv6 : 443'
-    type: vless
-    server: 2606:4700:3035::6815:12ec
-    port: 443
-    udp: false
-    network: ws
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-    - http/1.1
-    uuid: 439befb4-3d4a-4857-88e5-bf8d7254a3b4
-    flow: ''
-    servername: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-    ws-opts:
-      path: /eyJqdW5rIjoiaDYxbjA4U1JSOWRnZiIsInByb3RvY29sIjoidmwiLCJtb2RlIjoicHJveHlpcCIsInBhbmVsSVBzIjpbXX0=
-      headers:
-        Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: '💦 6 - VLESS - IPv6 : 443'
-    type: vless
-    server: 2606:4700:3030::ac43:b7e5
-    port: 443
-    udp: false
-    network: ws
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-    - http/1.1
-    uuid: 439befb4-3d4a-4857-88e5-bf8d7254a3b4
-    flow: ''
-    servername: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-    ws-opts:
-      path: /eyJqdW5rIjoiV0hSWE1FcVkiLCJwcm90b2NvbCI6InZsIiwibW9kZSI6InByb3h5aXAiLCJwYW5lbElQcyI6W119
-      headers:
-        Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 1 - Trojan - Domain : 443'
     type: trojan
@@ -139,6 +102,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 2 - Trojan - Domain : 443'
     type: trojan
@@ -158,6 +122,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 3 - Trojan - IPv4 : 443'
     type: trojan
@@ -177,6 +142,7 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"
 
   - name: '💦 4 - Trojan - IPv4 : 443'
     type: trojan
@@ -196,41 +162,4 @@ proxies:
         Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
       max-early-data: 2560
       early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: '💦 5 - Trojan - IPv6 : 443'
-    type: trojan
-    server: 2606:4700:3035::6815:12ec
-    port: 443
-    udp: false
-    network: ws
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-    - http/1.1
-    password: 26UJe8gfNYll
-    sni: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-    ws-opts:
-      path: /eyJqdW5rIjoiZFVzS00zV0JKbTNnZlJTIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==
-      headers:
-        Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
-
-  - name: '💦 6 - Trojan - IPv6 : 443'
-    type: trojan
-    server: 2606:4700:3030::ac43:b7e5
-    port: 443
-    udp: false
-    network: ws
-    tls: true
-    client-fingerprint: chrome
-    alpn:
-    - http/1.1
-    password: 26UJe8gfNYll
-    sni: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-    ws-opts:
-      path: /eyJqdW5rIjoiQXBuWFl6NGoxIiwicHJvdG9jb2wiOiJ0ciIsIm1vZGUiOiJwcm94eWlwIiwicGFuZWxJUHMiOltdfQ==
-      headers:
-        Host: 606es4zsvcrwlltl5autllc8iq1j-3xc.stalker-pro.workers.dev
-      max-early-data: 2560
-      early-data-header-name: Sec-WebSocket-Protocol
+    dialer-proxy: "WARP"

@@ -48,6 +48,14 @@ warp-common: &warp-common
     <<: *CPS0
 
 proxies:
+# Tailscale - для доступа к домашней сети через VPN
+- name: TAILSCALE
+  type: tailscale
+  auth-key: tskey-auth-kqLkD57mD821CNTRL-CYnJJJoLDSJPNvEUUr1FSJVasEnJZBjz
+  hostname: flclash-phone
+  ephemeral: false
+  accept-routes: true
+
 # Мой сервер на рабочей станции
 - name: "📱 Connect-Phone-1"
   type: wireguard
@@ -320,14 +328,14 @@ proxy-groups:
 # Основные группы
 
 # Эта группа будет автоматически выбирать рабочую ноду
-- name: "⚡ Home-Tailscale-LAN"
-  type: url-test
-  url: http://192.168.1.1 # Пингуем ваш домашний роутер для проверки связи
-  interval: 300
-  proxies:
-    - "📱 Connect-Phone-1"
-    - "📱 Connect-Phone-2"
-    - "📱 Connect-Phone-3"
+# - name: "⚡ Home-Tailscale-LAN"
+#   type: url-test
+#   url: http://192.168.1.1 # Пингуем ваш домашний роутер для проверки связи
+#   interval: 300
+#   proxies:
+#     - "📱 Connect-Phone-1"
+#     - "📱 Connect-Phone-2"
+    # - "📱 Connect-Phone-3"
   
 - name: WARP
   type: select
@@ -521,13 +529,14 @@ rule-providers:
     path: ./ruleset/antropic.yaml
 
 rules:
+  - IP-CIDR,100.64.0.0/10,TAILSCALE,no-resolve
   - DOMAIN-SUFFIX,rambler.ru, Changed IP
 
   # ПРИНУДИТЕЛЬНО ПУСКАЕМ ТРАФИК ДО САМОГО СЕРВЕРА НАПРЯМУЮ (РЕШАЕТ ЦИКЛ)
-  - IP-CIDR,100.93.94.90/32,DIRECT
+  # - IP-CIDR,100.93.94.90/32,DIRECT
 # Трафик, который должен идти напрямую (РФ сервисы, банки)
-  - IP-CIDR,100.64.0.0/10,⚡ Home-Tailscale-LAN
-  - IP-CIDR,192.168.1.0/24,⚡ Home-Tailscale-LAN
+  # - IP-CIDR,100.64.0.0/10,⚡ Home-Tailscale-LAN
+  # - IP-CIDR,192.168.1.0/24,⚡ Home-Tailscale-LAN
   - GEOIP,ru,DIRECT
   - RULE-SET,lite-force-direct,DIRECT
   - PROCESS-NAME,syncthing.exe,DIRECT

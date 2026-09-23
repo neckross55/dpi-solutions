@@ -540,7 +540,6 @@ rules:
   - PROCESS-NAME,picard.exe,Changed IP
 # Трафик через VPN - смена IP  
   - RULE-SET,my-local-request,Changed IP
-  - RULE-SET,my-local-request-clean,Changed IP
   - RULE-SET,lite-custom-rule,Changed IP
   # - RULE-SET,ru-blocked,Changed IP
   - RULE-SET,telegram,Changed IP

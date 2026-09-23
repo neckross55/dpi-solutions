@@ -48,45 +48,6 @@ warp-common: &warp-common
     <<: *CPS0
 
 proxies:
-# Tailscale - для доступа к домашней сети через VPN
-- name: TAILSCALE
-  type: tailscale
-  auth-key: tskey-auth-kqLkD57mD821CNTRL-CYnJJJoLDSJPNvEUUr1FSJVasEnJZBjz
-  hostname: flclash-phone
-  ephemeral: false
-  accept-routes: true
-
-# Мой сервер на рабочей станции
-- name: "📱 Connect-Phone-1"
-  type: wireguard
-  server: 100.93.94.90   # Сюда - Tailscale IP моего Windows-ПК
-  port: 51820            # Порт
-  ip: 10.0.0.2           # Внутренний IP телефона, который вы прописали в [Peer] на ПК
-  public-key: "dxAUyS72RgOPnZ8OZv4VrLaD2/SWPOYW/Ugzjtqrs3A="  # Открытый ключ СЕРВЕРА (из интерфейса WireGuard на Windows)
-  private-key: "MItPHHsVaHKc5dwCsOciUMswfP/8t39TqvBuow7eh2s=" # Приватный ключ КЛИЕНТА (временный ключ, сгенерированный для телефона)
-  udp: true
-  remote-dns-resolve: true
-
-- name: "📱 Connect-Phone-2"
-  type: wireguard
-  server: 100.93.94.90   # Сюда - Tailscale IP моего Windows-ПК
-  port: 51820            # Порт
-  ip: 10.0.0.3           # Внутренний IP телефона, который вы прописали в [Peer] на ПК
-  public-key: "dxAUyS72RgOPnZ8OZv4VrLaD2/SWPOYW/Ugzjtqrs3A="  # Открытый ключ СЕРВЕРА (из интерфейса WireGuard на Windows)
-  private-key: "eB6a/HY7aLvSUQ0aUdH+AfMet1NHtwOZHLsMi1EN6GA=" # Приватный ключ КЛИЕНТА (временный ключ, сгенерированный для телефона)
-  udp: true
-  remote-dns-resolve: true
-
-- name: "📱 Connect-Phone-3"
-  type: wireguard
-  server: 100.93.94.90   # Сюда - Tailscale IP моего Windows-ПК
-  port: 51820            # Порт
-  ip: 10.0.0.4           # Внутренний IP телефона, который вы прописали в [Peer] на ПК
-  public-key: "dxAUyS72RgOPnZ8OZv4VrLaD2/SWPOYW/Ugzjtqrs3A="  # Открытый ключ СЕРВЕРА (из интерфейса WireGuard на Windows)
-  private-key: "IBpmwRQzggcxgGaf32nuKFg/rgbk085SNm8TCR4AIWs=" # Приватный ключ КЛИЕНТА (временный ключ, сгенерированный для телефона)
-  udp: true
-  remote-dns-resolve: true
-
 # Гео-endpoint'ы
 - name: "[🌍] 🇳🇱 Нидерланды"
   <<: *warp-common
@@ -325,18 +286,7 @@ proxies:
   dialer-proxy: "WARP"
 
 proxy-groups:
-# Основные группы
-
-# Эта группа будет автоматически выбирать рабочую ноду
-# - name: "⚡ Home-Tailscale-LAN"
-#   type: url-test
-#   url: http://192.168.1.1 # Пингуем ваш домашний роутер для проверки связи
-#   interval: 300
-#   proxies:
-#     - "📱 Connect-Phone-1"
-#     - "📱 Connect-Phone-2"
-    # - "📱 Connect-Phone-3"
-  
+# Основные группы 
 - name: WARP
   type: select
   icon: https://www.vectorlogo.zone/logos/cloudflare/cloudflare-icon.svg
@@ -529,14 +479,9 @@ rule-providers:
     path: ./ruleset/antropic.yaml
 
 rules:
-  - IP-CIDR,100.64.0.0/10,TAILSCALE,no-resolve
+# Уникальный случай
   - DOMAIN-SUFFIX,rambler.ru, Changed IP
-
-  # ПРИНУДИТЕЛЬНО ПУСКАЕМ ТРАФИК ДО САМОГО СЕРВЕРА НАПРЯМУЮ (РЕШАЕТ ЦИКЛ)
-  # - IP-CIDR,100.93.94.90/32,DIRECT
 # Трафик, который должен идти напрямую (РФ сервисы, банки)
-  # - IP-CIDR,100.64.0.0/10,⚡ Home-Tailscale-LAN
-  # - IP-CIDR,192.168.1.0/24,⚡ Home-Tailscale-LAN
   - GEOIP,ru,DIRECT
   - RULE-SET,lite-force-direct,DIRECT
   - PROCESS-NAME,syncthing.exe,DIRECT

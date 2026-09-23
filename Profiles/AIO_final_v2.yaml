@@ -393,6 +393,20 @@ proxy-groups:
 
 
 rule-providers:
+  lite-force-direct:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/my-force-direct.yaml"
+    path: ./remote-custom-rules/lite-force-direct.yaml
+    interval: 86400
+
+  lite-custom-rule:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/my-remote-request.yaml"
+    path: ./remote-custom-rules/lite-custom-rule.yaml
+    interval: 86400
+
 # для дебагга, чтобы не дергать удаленный ресурс, а юзать локальный
   my-force-direct:
     behavior: classical
@@ -403,11 +417,6 @@ rule-providers:
     behavior: classical
     type: file
     path: ./local-ruleset/my-local-request.yaml
-
-  my-local-request-clean:
-    behavior: classical
-    type: file
-    path: ./local-ruleset/my-local-request-clean.yaml
 
   ru-blocked:
     behavior: domain
@@ -517,7 +526,7 @@ rules:
   - IP-CIDR,100.64.0.0/10,⚡ Home-Tailscale-LAN
   - IP-CIDR,192.168.1.0/24,⚡ Home-Tailscale-LAN
   - GEOIP,ru,DIRECT
-  - RULE-SET,my-force-direct,DIRECT
+  - RULE-SET,lite-force-direct,DIRECT
   - PROCESS-NAME,syncthing.exe,DIRECT
 # локальные
   - DOMAIN-SUFFIX,local,DIRECT
@@ -532,6 +541,7 @@ rules:
 # Трафик через VPN - смена IP  
   - RULE-SET,my-local-request,Changed IP
   - RULE-SET,my-local-request-clean,Changed IP
+  - RULE-SET,lite-custom-rule,Changed IP
   # - RULE-SET,ru-blocked,Changed IP
   - RULE-SET,telegram,Changed IP
   - RULE-SET,whatsapp,Changed IP

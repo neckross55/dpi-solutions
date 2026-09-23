@@ -396,14 +396,14 @@ rule-providers:
   lite-force-direct:
     behavior: classical
     type: http
-    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/my-force-direct.yaml"
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-force-direct.yaml"
     path: ./remote-custom-rules/lite-force-direct.yaml
     interval: 86400
 
   lite-custom-rule:
     behavior: classical
     type: http
-    url: "https://raw.githubusercontent.com/4kWarhammer/Proxi-Rule-Providers/refs/heads/main/Providers/my-remote-request.yaml"
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-custom-rule.yaml"
     path: ./remote-custom-rules/lite-custom-rule.yaml
     interval: 86400
 
@@ -522,6 +522,9 @@ rule-providers:
 
 rules:
   - DOMAIN-SUFFIX,rambler.ru, Changed IP
+
+  # ПРИНУДИТЕЛЬНО ПУСКАЕМ ТРАФИК ДО САМОГО СЕРВЕРА НАПРЯМУЮ (РЕШАЕТ ЦИКЛ)
+  - IP-CIDR,100.93.94.90/32,DIRECT
 # Трафик, который должен идти напрямую (РФ сервисы, банки)
   - IP-CIDR,100.64.0.0/10,⚡ Home-Tailscale-LAN
   - IP-CIDR,192.168.1.0/24,⚡ Home-Tailscale-LAN

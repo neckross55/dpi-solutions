@@ -65,3 +65,6 @@ payload:
   - DOMAIN-SUFFIX,generativeai.google
   - DOMAIN,aisandbox-pa.googleapis.com
   - DOMAIN,robinfrontend-pa.googleapis.com
+
+  # Pornhub - что-то в cloudflare долго, видимо блочит
+  - DOMAIN-keyword,phncdn

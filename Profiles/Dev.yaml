@@ -661,6 +661,28 @@ proxy-groups:
 
 
 rule-providers:
+
+# Кастомные правила, которые можно подключать в секцию rules
+  lite-force-direct:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-force-direct.yaml"
+    path: ./remote-custom-rules/lite-force-direct.yaml
+    interval: 86400
+
+  lite-custom-rule:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-custom-rule.yaml"
+    path: ./remote-custom-rules/lite-custom-rule.yaml
+    interval: 86400
+
+  lite-custom-warp:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-custom-warp.yaml"
+    interval: 86400
+
 # для дебагга, чтобы не дергать удаленный ресурс, а юзать локальный
   my-force-direct:
     behavior: classical
@@ -677,6 +699,7 @@ rule-providers:
     type: file
     path: ./local-ruleset/my-local-request-clean.yaml
 
+  # Основная зона
   ru-blocked:
     behavior: domain
     type: http
@@ -790,6 +813,7 @@ rules:
   - DOMAIN-SUFFIX,lan,DIRECT
 # Популярные сервисы
   - RULE-SET,youtube,WARP
+  - RULE-SET,lite-custom-warp,WARP
 # Отдельные программы
   - PROCESS-NAME,Code.exe,Changed IP
   - PROCESS-NAME,Anty.exe,Changed IP
@@ -797,7 +821,7 @@ rules:
   - PROCESS-NAME,picard.exe,Changed IP
 # Трафик через VPN - смена IP  
   - RULE-SET,my-local-request,Changed IP
-  - RULE-SET,my-local-request-clean,Changed IP
+  - RULE-SET,lite-custom-rule,Changed IP
   # - RULE-SET,ru-blocked,Changed IP
   - RULE-SET,telegram,Changed IP
   - RULE-SET,whatsapp,Changed IP

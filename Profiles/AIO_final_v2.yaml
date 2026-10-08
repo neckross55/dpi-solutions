@@ -365,6 +365,12 @@ rule-providers:
     path: ./remote-custom-rules/lite-custom-rule.yaml
     interval: 86400
 
+  lite-custom-warp:
+    behavior: classical
+    type: http
+    url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-custom-warp.yaml"
+    interval: 86400
+
 # для дебагга, чтобы не дергать удаленный ресурс, а юзать локальный
   my-force-direct:
     behavior: classical
@@ -376,6 +382,7 @@ rule-providers:
     type: file
     path: ./local-ruleset/my-local-request.yaml
 
+  # Основная зона
   ru-blocked:
     behavior: domain
     type: http
@@ -488,8 +495,9 @@ rules:
 # локальные
   - DOMAIN-SUFFIX,local,DIRECT
   - DOMAIN-SUFFIX,lan,DIRECT
-# Популярные сервисы
+# Что точно идет через WARP
   - RULE-SET,youtube,WARP
+  - RULE-SET,lite-custom-warp,WARP
 # Отдельные программы
   - PROCESS-NAME,Code.exe,Changed IP
   - PROCESS-NAME,Anty.exe,Changed IP

@@ -1,0 +1,3 @@
+payload:
+  # Pornhub - что-то в cloudflare долго, видимо блочит
+  - DOMAIN-keyword,phncdn

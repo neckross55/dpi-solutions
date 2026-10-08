@@ -681,6 +681,7 @@ rule-providers:
     behavior: classical
     type: http
     url: "https://raw.githubusercontent.com/neckross55/dpi-solutions/refs/heads/main/rules/lite-custom-warp.yaml"
+    path: ./remote-custom-rules/lite-custom-rule.yaml
     interval: 86400
 
 # для дебагга, чтобы не дергать удаленный ресурс, а юзать локальный
